@@ -180,14 +180,6 @@ export default function RootLayout({
                   '@type': 'Person',
                   name: 'I Go Dye',
                 },
-                {
-                  '@type': 'Person',
-                  name: 'Klint da Drunk',
-                },
-                {
-                  '@type': 'Person',
-                  name: 'Kenny Blaq',
-                },
               ],
               offers: [
                 {
