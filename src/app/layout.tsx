@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     'Entertainment Benin City',
     'Edo State Events',
   ],
-  metadataBase: new URL('https://mccasinogameofjokes.com'),
+  metadataBase: new URL('https://casinogameofjoke'),
   openGraph: {
     type: 'website',
     locale: 'en_NG',
-    url: 'https://mccasinogameofjokes.com',
+    url: 'https://casinogameofjoke',
     siteName: 'Game of Jokes 2026',
     title: 'Game of Jokes 2026 | MC Casino\'s Annual Comedy Concert',
     description:
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
     // other: 'your-other-verification-code',
   },
   alternates: {
-    canonical: 'https://mccasinogameofjokes.com',
+    canonical: 'https://casinogameofjoke.com',
   },
 };
 
@@ -161,11 +161,11 @@ export default function RootLayout({
                   addressCountry: 'NG',
                 },
               },
-              image: 'https://mccasinogameofjokes.com/og-image.jpg',
+              image: 'https://casinogameofjoke/og-image.jpg',
               organizer: {
                 '@type': 'Person',
                 name: 'MC Casino',
-                url: 'https://mccasinogameofjokes.com',
+                url: 'https://casinogameofjoke',
               },
               performer: [
                 {
@@ -196,7 +196,7 @@ export default function RootLayout({
                   price: '5000',
                   priceCurrency: 'NGN',
                   availability: 'https://schema.org/InStock',
-                  url: 'https://mccasinogameofjokes.com/#tickets',
+                  url: 'https://casinogameofjoke/#tickets',
                   validFrom: '2025-10-19',
                 },
                 {
@@ -205,7 +205,7 @@ export default function RootLayout({
                   price: '20000',
                   priceCurrency: 'NGN',
                   availability: 'https://schema.org/InStock',
-                  url: 'https://mccasinogameofjokes.com/#tickets',
+                  url: 'https://casinogameofjoke/#tickets',
                   validFrom: '2025-10-19',
                 },
                 {
@@ -214,7 +214,7 @@ export default function RootLayout({
                   price: '500000',
                   priceCurrency: 'NGN',
                   availability: 'https://schema.org/InStock',
-                  url: 'https://mccasinogameofjokes.com/#tickets',
+                  url: 'https://casinogameofjoke/#tickets',
                   validFrom: '2025-10-19',
                 },
               ],
