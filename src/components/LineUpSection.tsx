@@ -289,7 +289,7 @@ export default function LineupSection() {
       </div>
 
       <div className="profile-images" ref={profileImagesContainerRef}>
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((num, index) => (
+        {[1, 2, 3, 4, 5].map((num, index) => (
           <div
             key={`img${num}`}
             className="img"
@@ -323,11 +323,8 @@ export default function LineupSection() {
           'MC Casino',
           'Mr P',
           'I Go Dye',
-          'Klint da Drunk',
           'Destalker',
           'Mc Edopikin',
-          'Kenny Blaq',
-          'Sarkin Dariya',
         ].map((name, index) => (
           <div
             key={name}
