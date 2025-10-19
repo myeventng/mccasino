@@ -10,6 +10,7 @@ import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 
 export default function HeroSection() {
   const [isMuted, setIsMuted] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -127,6 +128,20 @@ export default function HeroSection() {
         overflow: 'hidden',
         background: '#000',
       }}>
+        {/* Background Image - Fallback */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'url(/hero-bg.jpeg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 0,
+        }} />
+
         {/* Video Background */}
         <div className="hero-video-container" style={{
           position: 'absolute',
@@ -135,12 +150,16 @@ export default function HeroSection() {
           width: '100%',
           height: '100%',
           transform: 'scale(1.2)',
+          zIndex: 1,
+          opacity: videoLoaded ? 1 : 0,
+          transition: 'opacity 0.5s ease-in-out',
         }}>
           <video
             ref={videoRef}
             muted={isMuted}
             loop
             playsInline
+            onLoadedData={() => setVideoLoaded(true)}
             style={{
               position: 'absolute',
               width: '100%',
@@ -161,6 +180,19 @@ export default function HeroSection() {
             background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
           }} />
         </div>
+
+        {/* Gradient Overlay for Background Image (when video not loaded) */}
+        {!videoLoaded && (
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
+            zIndex: 1,
+          }} />
+        )}
 
         {/* Mute/Unmute Button */}
         <motion.button
