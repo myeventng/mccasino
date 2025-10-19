@@ -212,6 +212,7 @@ export default function Navbar() {
                 </motion.a>
               ))}
 
+
               <motion.a
                 href="#tickets"
                 initial={{ opacity: 0, x: 40 }}
