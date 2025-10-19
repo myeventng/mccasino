@@ -108,6 +108,9 @@ export default function EventDetailsSection() {
             className="final-cta-btn-redesign"
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+    window.location.href = 'https://myevent.com.ng/events/mc-casino-game-of-jokes-the-very-good-bad-guyz';
+  }}
           >
             <span className="cta-btn-text">Get Your Ticket Now</span>
             <span className="cta-btn-arrow">→</span>

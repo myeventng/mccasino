@@ -1,6 +1,5 @@
 // ==================== FILE: components/MCCasinoSection.tsx ====================
 'use client';
-
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Copy from '@/components/Copy';
@@ -18,7 +17,6 @@ export default function MCCasinoSection() {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          
           <Copy>
             <h2>MC Casino</h2>
           </Copy>
@@ -45,21 +43,19 @@ export default function MCCasinoSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: true }}
+          style={{zIndex: 2}}
         >
-          <div className="image-frame">
-            <motion.img
-              src="/casino.png"
-              alt="MC Casino"
-              animate={{ rotate: [0, 5, -5, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                borderRadius: '50%'
-              }}
-            />
-          </div>
+          <motion.img
+            src="/casino1.png"
+            alt="MC Casino"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '20px',
+              boxShadow: '0 20px 60px rgba(255, 215, 0, 0.2)',
+            }}
+          />
         </motion.div>
       </div>
     </section>

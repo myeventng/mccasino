@@ -112,7 +112,8 @@ export default function TicketsSection() {
               <motion.button
                 className="ticket-btn-redesign"
                 whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}  onClick={() => {
+                whileTap={{ scale: 0.98 }}  
+                onClick={() => {
     window.location.href = 'https://myevent.com.ng/events/mc-casino-game-of-jokes-the-very-good-bad-guyz';
   }}
               >
