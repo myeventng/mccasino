@@ -60,12 +60,27 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
     shortcut: '/favicon.ico',
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        url: '/android-chrome-192x192.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '512x512',
+        url: '/android-chrome-512x512.png',
+      },
     ],
   },
   manifest: '/site.webmanifest',
@@ -105,10 +120,21 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         
+        {/* Favicon Links - Fallback for older browsers */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        
         {/* Additional SEO Meta Tags */}
         <meta name="author" content="MC Casino - Lawrence Osarenkhoe" />
         <meta name="theme-color" content="#ffd700" />
         <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-TileColor" content="#ffd700" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
         
         {/* Event Schema Markup */}
         <script

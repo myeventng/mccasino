@@ -56,7 +56,6 @@ export default function HeroSection() {
         delay: 0.75,
         onStart: () => {
           gsap.to('.hero-video-container', { scale: 1, duration: 2, ease: 'hop' });
-          // Play video with sound when animation completes
           if (videoRef.current) {
             videoRef.current.play();
           }
@@ -65,7 +64,7 @@ export default function HeroSection() {
       '<'
     );
     tl.to(
-      ['.hero-content-wrapper'],
+      '.hero-content-wrapper',
       { y: '0%', opacity: 1, duration: 1.5, stagger: 0.2 },
       '<'
     );
@@ -121,21 +120,46 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Container */}
-      <div className="relative w-screen h-screen overflow-hidden bg-black">
+      <div style={{
+        position: 'relative',
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+        background: '#000',
+      }}>
         {/* Video Background */}
-        <div className="hero-video-container absolute inset-0 w-full h-full scale-125">
+        <div className="hero-video-container" style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          transform: 'scale(1.2)',
+        }}>
           <video
             ref={videoRef}
             muted={isMuted}
             loop
             playsInline
-            className="absolute w-full h-full object-cover"
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
           >
             <source src="/video.mp4" type="video/mp4" />
           </video>
           
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
+          }} />
         </div>
 
         {/* Mute/Unmute Button */}
@@ -144,21 +168,54 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 3.5 }}
           onClick={toggleMute}
-          className="fixed top-24 right-6 z-50 bg-black/50 backdrop-blur-sm p-3 rounded-full border border-white/20 hover:bg-black/70 transition-all"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
+          style={{
+            position: 'fixed',
+            top: '100px',
+            right: '24px',
+            zIndex: 999,
+            background: 'rgba(0, 0, 0, 0.5)',
+            backdropFilter: 'blur(10px)',
+            padding: '12px',
+            borderRadius: '50%',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
         >
           {isMuted ? (
-            <HiVolumeOff size={24} className="text-white" />
+            <HiVolumeOff size={24} color="#fff" />
           ) : (
-            <HiVolumeUp size={24} className="text-yellow-400" />
+            <HiVolumeUp size={24} color="#FFD700" />
           )}
         </motion.button>
 
         {/* Hero Content - Bottom Aligned */}
-        <div className="hero-content-wrapper absolute bottom-0 left-0 right-0 z-10 opacity-0 translate-y-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 lg:pb-24">
-            <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
+        <div className="hero-content-wrapper" style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 10,
+          opacity: 0,
+          transform: 'translateY(30px)',
+          paddingBottom: 'clamp(3rem, 8vh, 6rem)',
+        }}>
+          <div style={{
+            maxWidth: '1400px',
+            margin: '0 auto',
+            padding: '0 1.5rem',
+          }}>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              gap: 'clamp(0.5rem, 3vh, 2.5rem)',
+            }}>
               {/* Title */}
               <motion.h1
                 animate={{
@@ -173,13 +230,18 @@ export default function HeroSection() {
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight"
                 style={{
                   fontFamily: "'Bebas Neue', 'Impact', sans-serif",
+                  fontSize: 'clamp(2rem, 6vw, 4rem)',
+                  fontWeight: 900,
+                  letterSpacing: '0.02em',
+                  lineHeight: 1,
                   background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
+                  margin: 0,
+                  padding: '0 1rem',
                 }}
               >
                 MC Casino&apos;s<br />Game of Jokes 2026
@@ -188,10 +250,26 @@ export default function HeroSection() {
               {/* Event Details */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-yellow-400/30"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  background: 'rgba(0, 0, 0, 0.6)',
+                  backdropFilter: 'blur(10px)',
+                  padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem)',
+                  borderRadius: '50px',
+                  border: '1px solid rgba(255, 215, 0, 0.4)',
+                }}
               >
-                <p className="text-yellow-400 font-bold text-sm sm:text-base tracking-wider uppercase"
-                   style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                <p style={{
+                  color: '#FFD700',
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 'clamp(0.5rem, 1vw, 0.6rem)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  margin: 0,
+                }}>
                   1st January • Benin City • Cathelea Convention Centre
                 </p>
               </motion.div>
@@ -205,15 +283,41 @@ export default function HeroSection() {
                 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 400 }}
-                className="inline-flex items-center gap-3 bg-transparent border-2 border-yellow-400 hover:bg-yellow-400 text-yellow-400 hover:text-black px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-base sm:text-lg tracking-wide uppercase transition-all duration-300 group"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  background: 'transparent',
+                  border: '2px solid #FFD700',
+                  color: '#FFD700',
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 'clamp(0.875rem, 2vw, 1.125rem)',
+                  padding: 'clamp(1rem, 2.5vw, 1.25rem) clamp(2rem, 5vw, 3rem)',
+                  borderRadius: '50px',
+                  textDecoration: 'none',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  marginTop: 'clamp(0.5rem, 1vh, 1rem)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#FFD700';
+                  e.currentTarget.style.color = '#000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = '#FFD700';
+                }}
               >
                 <span>Buy Your Ticket Now</span>
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                  style={{ display: 'flex', alignItems: 'center' }}
                 >
-                  <BsArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                  <BsArrowRight size={20} />
                 </motion.div>
               </motion.a>
             </div>
@@ -225,17 +329,37 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 4, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          style={{
+            position: 'absolute',
+            bottom: 'clamp(1.5rem, 3vh, 2rem)',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 10,
+          }}
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
+            style={{
+              width: '24px',
+              height: '40px',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '20px',
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'center',
+              padding: '8px',
+            }}
           >
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-1.5 h-1.5 bg-yellow-400 rounded-full"
+              style={{
+                width: '6px',
+                height: '6px',
+                background: '#FFD700',
+                borderRadius: '50%',
+              }}
             />
           </motion.div>
         </motion.div>
@@ -245,7 +369,6 @@ export default function HeroSection() {
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap');
         
         .hero-video-container {
-          transform: scale(1.2);
           will-change: transform;
         }
 

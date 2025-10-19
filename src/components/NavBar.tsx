@@ -34,7 +34,7 @@ export default function Navbar() {
           opacity: 1,
           background: scrolled 
             ? 'rgba(0, 0, 0, 0.95)' 
-            : 'rgba(0, 0, 0, 0.3)',
+            : 'rgba(0, 0, 0, 0.0)',
         }}
         transition={{ 
           y: { duration: 1, delay: 3.5 },
@@ -55,7 +55,7 @@ export default function Navbar() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '80px' }}>
             {/* Logo */}
             <motion.a
-              href="#"
+              href="https://myevent.com.ng/events/mc-casino-game-of-jokes-the-very-good-bad-guyz"
               whileHover={{ scale: 1.03 }}
               transition={{ type: 'spring', stiffness: 300 }}
               style={{
