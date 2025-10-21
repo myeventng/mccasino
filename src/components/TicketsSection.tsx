@@ -15,32 +15,44 @@ interface Ticket {
 }
 
 export default function TicketsSection() {
-  const tickets: Ticket[] = [
+ const tickets: Ticket[] = [
     {
-      type: 'Regular',
-      price: '₦5,000',
+      type: 'Regular Seat',
+      price: '₦20,000',
       priceDetail: 'per person',
       image: '/ticket-regular.jpg',
       features: ['General Admission', 'Standing Area', 'Access to Main Event'],
     },
     {
-      type: 'VIP',
-      price: '₦20,000',
+      type: 'Seat on a Table',
+      price: '₦150,000',
       priceDetail: 'per person',
       image: '/ticket-vip.jpg',
       features: ['Premium Seating', 'VIP Section', 'Complimentary Drink'],
       popular: true,
     },
     {
-      type: 'Table Package',
-      price: '₦500,000',
-      priceDetail: 'starting from',
+      type: 'Gold Table',
+      price: '₦1,000,000',
+      priceDetail: 'per table',
       image: '/ticket-table.jpg',
       features: [
         'Exclusive Seating',
         'Premium Drinks',
         'Table Service',
         'VIP Access',
+      ],
+    },
+    {
+      type: 'Premium Table',
+      price: '₦2,000,000',
+      priceDetail: 'per table',
+      image: '/ticket-premium.jpg',
+      features: [
+        'Best Location',
+        'Premium Drinks',
+        'Dedicated Service',
+        'VIP Treatment',
       ],
     },
   ];
